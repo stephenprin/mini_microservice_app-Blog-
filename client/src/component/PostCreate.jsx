@@ -14,8 +14,11 @@ const PostCreate = () => {
     await axios.post('http://localhost:4000/posts', {
       title
     })
+
+    setTitle('')
   }
 
+  console.log(title)
 
   return (
       <div>
@@ -25,7 +28,7 @@ const PostCreate = () => {
           <input className="input input-bordered w-full mb-4 mt-6 max-w-xs "
             type='text' placeholder='Write a post' onChange={handleChange} value={title} />
               </div>
-                <button className='btn btn-primary'>Submit</button>
+                <button className='btn btn-primary mb-4' type='submit'>Submit</button>
           </form>
     </div>
   )
