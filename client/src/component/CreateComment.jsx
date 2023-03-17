@@ -11,9 +11,13 @@ const CreateComment = ({postId}) => {
 
     const handleSubmit = async (event) => { 
         event.preventDefault()
+       try {
         await axios.post(`http://localhost:4001/posts/${postId}/comment`, {
             content: comment
         })
+       } catch (error) {
+        console.log(error)
+       }
         setComment('')
     }
 
@@ -23,9 +27,9 @@ const CreateComment = ({postId}) => {
           <form onSubmit={handleSubmit}>
               <div className='form-group'>
                   <label className='block text-[0.6rem]'>New Comment</label>
-                    <input className="input input-bordered w-full mb-4 mt-6 max-w-xs value={comment} " onChange={handleComment}/>
+                    <input className="input input-bordered w-full  mb-4 mt-6 max-w-xs value={comment} " onChange={handleComment}/>
               </div>
-              <button className="btn btn-outline btn-accent">Post</button>
+              <button className="btn btn-outline p-0-2 btn-accent text-[0.7rem]">comment</button>
       </form>
     </div>
   )

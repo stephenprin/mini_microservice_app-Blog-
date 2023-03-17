@@ -6,8 +6,12 @@ const CommentList = ({postId}) => {
     
     const fetchComments = async () => { 
 
-        const res = await axios.get(`http://localhost:4001/posts/${postId}/comment`)
+       try {
+        const res = await axios(`http://localhost:4001/posts/${postId}/comment`)
         setComments(res.data)
+       } catch (error) {
+        console.log(error)
+       }
     }
 
     useEffect(() => { 
@@ -18,7 +22,7 @@ const CommentList = ({postId}) => {
   return (
     <div>
           {comments.map(comment => { 
-              return <li key={comment.id}>{comment.content}</li>
+              return <li key={comment.id} className='text-xs'>{comment.content}</li>
               
           })}
     </div>

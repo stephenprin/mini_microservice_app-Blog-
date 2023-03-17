@@ -18,9 +18,9 @@ function PostList() {
 
     const renderedPosts = Object.values(posts).map(post => { 
         return (
-            <div className='card ' style={{ width: '30%', marginBottom: '20px'}} key={post.id}>
+            <div className='card border border-sky-500 space-x-4 ' style={{ width: '40%', marginBottom: '20px'}} key={post.id}>
                 <div className='card-body'>
-                    <h3 className='transition duration-150 ease-out hover:scale-95'>{post.title}</h3>
+                    <h3 className='transition duration-150 ease-out hover:scale-90 font-bold'>{post.title}</h3>
                     <CommentList postId={post.id}/>
                     < CreateComment postId={post.id}/>
                 </div>
@@ -29,7 +29,7 @@ function PostList() {
     } )
 
   return (
-      <div className='flex flex-row flex-wrap justify-between'>{ renderedPosts}</div>
+      <div className='flex flex-row flex-wrap justify-between '>{ renderedPosts}</div>
   )
 }
 

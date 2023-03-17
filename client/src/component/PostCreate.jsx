@@ -18,7 +18,7 @@ const PostCreate = () => {
     setTitle('')
   }
 
-  console.log(title)
+ 
 
   return (
       <div>
